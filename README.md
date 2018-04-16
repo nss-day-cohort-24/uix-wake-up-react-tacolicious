@@ -9,7 +9,7 @@ Your group will create a Single Page Application that is essentially a dashboard
 
 > **Pro Tip:** If you find yourself writing logic on the first day of the sprint, then you did not spend enough time planning, and gaining clarification on the acceptance criteria.
 
-1. Be sure to review your design requirements [here](https://sites.google.com/susanculkin.com/fewdd-b/design-subjects/week-10). 
+1. Be sure to review your design requirements [here](https://sites.google.com/susanculkin.com/fewdd-b/home/week-14). 
 1. Review the [product owner's tickets](https://github.com/nashville-software-school/group-project-uix-cock-a-doodle-doo/issues).
 1. Create Firebase account for your team to use in this application.
 1. Be sure to set your Firebase rules for indexing.
