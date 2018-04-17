@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { loginWithGoogle, saveUser } from './config/helpers';
+import { loginWithGoogle, logout } from './config/helpers';
+import { Button } from 'reactstrap';
 
 class App extends Component {
   render() {
@@ -8,7 +9,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
         </header>
-        <button onClick={loginWithGoogle} className="btn">Login</button>
+        <Button onClick={loginWithGoogle} color="primary">Login</Button>
+        <Button onClick={logout}>Logout</Button>
       </div>
     );
   }
