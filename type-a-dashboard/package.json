@@ -5,6 +5,7 @@
   "dependencies": {
     "react": "^16.3.2",
     "react-bootstrap": "^0.32.1",
+    "react-css-blur": "^1.1.1",
     "react-dom": "^16.3.2",
     "react-rebase": "^1.0.5",
     "react-scripts": "1.1.4",
