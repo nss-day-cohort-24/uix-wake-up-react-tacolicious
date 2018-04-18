@@ -28,19 +28,22 @@ class Books extends Component {
         render(){
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
-            let bookElements = books.map((bookObj) => { 
-                <div>
+            let bookElements = books.map((bookObj, i) => { 
+                console.log(bookObj);
+                return (
+                <div key={i}>
                     <div className="bookInformation">
                         <div className="bookTitle">{bookObj.title}</div>
                         <div className="bookAuthor">{bookObj.author_name}</div>
                     </div>
-                    <button class="news-save-btn">Save</button>
+                    <button>Save</button>
                 </div>
-            })
-            return <div>
+            )})
+            return ( <div>
                 {bookElements}
+
             </div>
-        }
+            )}
 }
 
 export default Books;
