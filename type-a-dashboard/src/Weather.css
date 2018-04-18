@@ -30,7 +30,14 @@
     font-size: 12px;
 }
 
-.news-info-container {
+/* .news-info-container {
 
+} */
+
+.news-save-btn {
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
 }
-

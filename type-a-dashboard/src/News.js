@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './node_modules/bootstrap';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Weather.css';
 
 
@@ -63,6 +63,7 @@ class News extends React.Component {
                             <div className="news-source">{article.source.name}</div>
                             <div className="news-description">{article.description}</div>
                         </div>
+                        <button class="news-save-btn">Save</button>
                     </div>
                 );
 
@@ -74,6 +75,7 @@ class News extends React.Component {
                         <div id="news-container">
                             {articleElements}
                         </div>
+                        {/* <button>Save</button> */}
                     </div>
                 );
 
