@@ -1,0 +1,14 @@
+@import url("https://use.typekit.net/jmn4wnl.css");
+
+
+.today_temp {
+	font-family: "houschka-rounded";
+	font-size: 3rem;
+
+}
+
+.weather {
+	background-color: grey;
+	color: white;
+	height: 6rem;
+}

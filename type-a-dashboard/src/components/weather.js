@@ -1,4 +1,6 @@
 import React from 'react';
+import weatherKey from './weather-key';
+import './weather.css';
 
 class Weather extends React.Component {
   constructor(props) {
@@ -6,19 +8,19 @@ class Weather extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      // items: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.darksky.net/forecast/Dark Sky API key/37.8267,-122.4233")
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log("result", result.daily);
+          console.log(result.daily)
           this.setState({
             isLoaded: true,
-            items: result.items
+            days: result.daily.data
           });
         },
         // Note: it's important to handle errors here
@@ -34,15 +36,23 @@ class Weather extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-          Got it!
+        <div className="col-sm-12 row weather">
+          <div className="col-sm-4 today_temp">
+            81°
+          </div>
+          <div className="col-sm-8 row">
+            <div className="col-sm-3">Tue</div>
+            <div className="col-sm-3">Wed</div>
+            <div className="col-sm-3">Thu</div>
+            <div className="col-sm-3">Fri</div>
+          </div>
         </div>
       );
     }
