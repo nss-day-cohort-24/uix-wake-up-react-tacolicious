@@ -28,14 +28,18 @@ class Books extends Component {
         render(){
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
-            books.map((bookObj) => { 
-                <div className="bookDiv">
-                    {console.log(bookObj)}
-                    <div>{bookObj.title}</div>
-                    <div>{bookObj.author_name}</div>
+            let bookElements = books.map((bookObj) => { 
+                <div>
+                    <div className="bookInformation">
+                        <div className="bookTitle">{bookObj.title}</div>
+                        <div className="bookAuthor">{bookObj.author_name}</div>
+                    </div>
+                    <button class="news-save-btn">Save</button>
                 </div>
             })
-            return <div></div>
+            return <div>
+                {bookElements}
+            </div>
         }
 }
 
