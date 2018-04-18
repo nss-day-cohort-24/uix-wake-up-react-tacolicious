@@ -13,7 +13,7 @@ class Weather extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`)
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`, {mode : 'no-cors'})
       .then(res => res.json())
       .then(
         (result) => {
