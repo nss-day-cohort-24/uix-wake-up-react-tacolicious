@@ -6,19 +6,19 @@ class Weather extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      items: []
+      // items: []
     };
   }
 
   componentDidMount() {
-    fetch("https://api.darksky.net/forecast/Dark Sky API key/37.8267,-122.4233")
+    fetch("https://api.darksky.net/forecast/Dark Sky API key/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags")
       .then(res => res.json())
       .then(
         (result) => {
-          console.log("result", result.daily);
+          console.log(result.daily)
           this.setState({
             isLoaded: true,
-            items: result.items
+            days: result.daily
           });
         },
         // Note: it's important to handle errors here
@@ -34,7 +34,7 @@ class Weather extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
