@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Books from './Books';
 import Logbutton from './components/Logbutton';
-import Weather from './components/Weather';
+import Weather from './components/weather.js';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
