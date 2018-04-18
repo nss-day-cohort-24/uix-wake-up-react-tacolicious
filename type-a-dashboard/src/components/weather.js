@@ -1,5 +1,6 @@
 import React from 'react';
 import weatherKey from './weather-key';
+import './weather.css';
 
 class Weather extends React.Component {
   constructor(props) {
@@ -42,8 +43,16 @@ class Weather extends React.Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-          Got it!
+        <div className="col-sm-12 row weather">
+          <div className="col-sm-4 today_temp">
+            81°
+          </div>
+          <div className="col-sm-8 row">
+            <div className="col-sm-3">Tue</div>
+            <div className="col-sm-3">Wed</div>
+            <div className="col-sm-3">Thu</div>
+            <div className="col-sm-3">Fri</div>
+          </div>
         </div>
       );
     }
