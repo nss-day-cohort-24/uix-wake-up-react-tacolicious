@@ -13,19 +13,24 @@ class Books extends Component {
       }
 
     componentDidMount() {
-        fetch(`http://openlibrary.org/search.json?q='Harry+Potter&limit=10`, {
-        }).then((res) => {
-            console.log(res);
-            let results = res;
-            let books = results.json();
-            console.log(books);
-            })
-    }
+        fetch(`http://openlibrary.org/search.json?q='Harry+Potter&limit=10`)
+        .then(res => {
+            return res.json()
+          }).then((result) => {
+              console.log(result);
+              this.setState({
+                isLoaded: true,
+                items: result.docs
+              });
+              console.log(result.docs);
+          })
 
-    render(){
-        return <div></div>;
-    }
+        }
 
+        
+        render(){
+            return <div></div>;
+        }
 }
 
 export default Books;
