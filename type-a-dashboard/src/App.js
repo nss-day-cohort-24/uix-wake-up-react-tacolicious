@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import News from './News';
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import Books from './Books';
+import Logbutton from './components/Logbutton';
+import Weather from './components/weather.js';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <News />
+        <Books />
+        <Logbutton />
+        <Weather />
       </div>
     );
   }
