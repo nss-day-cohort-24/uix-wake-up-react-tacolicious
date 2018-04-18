@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { loginWithGoogle, logout } from './config/helpers';
 import { Button } from 'reactstrap';
-import Books from './Books.js';
+import Books from './Books';
 
 class App extends Component {
   render() {

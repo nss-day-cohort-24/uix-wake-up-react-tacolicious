@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
     "firebase": "^4.12.1",
     "re-base": "^3.2.2",
@@ -13,7 +14,8 @@
     "react-rebase": "^1.0.5",
     "react-scripts": "1.1.4",
     "react-xml-parser": "^1.0.5",
-    "reactstrap": "^5.0.0-beta.3"
+    "reactstrap": "^5.0.0-beta.3",
+    "xml2js": "^0.4.19"
   },
   "scripts": {
     "start": "react-scripts start",

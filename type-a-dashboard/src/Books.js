@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './index.css';
-import XMLParser from 'react-xml-parser';
 
 class Books extends Component {
 
@@ -14,24 +13,19 @@ class Books extends Component {
       }
 
     componentDidMount() {
-        const url = `https://www.goodreads.com/search.xml?key=Fnqk8bj6Up42xHAAc3anFg&q='Harry Potter`;
-
-        fetch(url, {
-            mode: 'no-cors'
-        }).then(res => res.text())
-        .then((result) => {
-            console.log(result);
-            const xml = new XMLParser().parseFromString(result);
-            console.log(xml);
-                this.setState({
-                isLoaded: true,
-                items: result.items
-            });
-        });
+        fetch(`http://openlibrary.org/search.json?q='Harry+Potter&limit=10`, {
+        }).then((res) => {
+            console.log(res);
+            let results = res;
+            let books = results.json();
+            console.log(books);
+            })
     }
+
     render(){
         return <div></div>;
     }
+
 }
 
 export default Books;
