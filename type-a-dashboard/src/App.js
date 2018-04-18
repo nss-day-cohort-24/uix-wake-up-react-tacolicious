@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import './App.css';
-import { loginWithGoogle, logout } from './config/helpers';
-import { Button } from 'reactstrap';
+import News from './News';
 import Books from './Books';
+import Logbutton from './components/Logbutton';
+import Weather from './components/weather.js';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <header>
-        </header>
+      <div className="App">
+        <News />
         <Books />
-        <Button onClick={loginWithGoogle} color="primary">Login</Button>
-        <Button onClick={logout}>Logout</Button>
+        <Logbutton />
+        <Weather />
       </div>
     );
   }
