@@ -17,19 +17,25 @@ class Books extends Component {
         .then(res => {
             return res.json()
           }).then((result) => {
-              console.log(result);
               this.setState({
                 isLoaded: true,
                 items: result.docs
               });
-              console.log(result.docs);
           })
 
         }
-
-        
+       
         render(){
-            return <div></div>;
+            const {  isLoaded, items } = this.state;
+            let books = this.state.items;
+            books.map((bookObj) => { 
+                <div className="bookDiv">
+                    {console.log(bookObj)}
+                    <div>{bookObj.title}</div>
+                    <div>{bookObj.author_name}</div>
+                </div>
+            })
+            return <div></div>
         }
 }
 
