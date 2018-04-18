@@ -1,4 +1,5 @@
 import React from 'react';
+import weatherKey from './weather-key';
 
 class Weather extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class Weather extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://api.darksky.net/forecast/Dark Sky API key/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags')
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
         (result) => {
