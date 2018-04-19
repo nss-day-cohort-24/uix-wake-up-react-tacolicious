@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './Weather.css';
+import './Modal.css';
+import { Modal } from 'react-bootstrap';
 
 
 
@@ -56,14 +57,14 @@ class News extends React.Component {
                 console.log('myHeadlines',myHeadlines);
                 let articleElements = myHeadlines.map((article) => 
 
-                    <div className="news-item">
+                    <div className="news-item" key={article.title}>
                         <img className="news-images" src={article.urlToImage}/>
                         <div className="news-info-container">
                             <div className="news-title">{article.title}</div>
                             <div className="news-source">{article.source.name}</div>
                             <div className="news-description">{article.description}</div>
                         </div>
-                        <button class="news-save-btn">Save</button>
+                        <button className="news-save-btn">Save</button>
                     </div>
                 );
 
