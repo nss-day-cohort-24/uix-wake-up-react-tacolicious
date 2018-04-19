@@ -58,12 +58,12 @@ class News extends React.Component {
           let articleElements = myHeadlines.map((article) => 
 
               <div className="modal-item" key={article.title}>
-                  <img className="modal-images" src={article.urlToImage}/>
                   <div className="modal-info-container">
                       <div className="modal-title">{article.title}</div>
                       <div className="modal-source">{article.source.name}</div>
                       <div className="modal-description">{article.description}</div>
                   </div>
+                  <img className="modal-images" src={article.urlToImage}/>
                   <button className="modal-save-btn" onClick={saveClicked}>Save</button>
               </div>
           );

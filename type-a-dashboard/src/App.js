@@ -5,6 +5,7 @@ import Books from './Books';
 // import Example from './API_Creds';
 import APICreds from './API_CredsModal';
 import NewsModal from './NewsModal';
+import BooksModal from './BooksModal';
 import Logbutton from './components/Logbutton';
 import Weather from './components/weather.js';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -15,10 +16,13 @@ class App extends Component {
     return (
       <div className="App">
         {/* <News /> */}
-        <NewsModal />
-        <APICreds />
-        <Books />
-        <Logbutton />
+        <div id="menu-btns">
+          <NewsModal />
+          <BooksModal />
+          <APICreds />
+          {/* <Books /> */}
+          <Logbutton />
+        </div>
         <Weather />
       </div>
     );

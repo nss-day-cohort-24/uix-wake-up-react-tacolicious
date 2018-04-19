@@ -2,20 +2,26 @@
 
 
 
-#modal-container {
+#modal-container {    
     display: grid;
-    grid-template-columns:  50%;
-    width: 62em;
+    grid-template-columns: auto;
     font-family: "houschka-rounded";
 }
 
+.modal-content {
+    background-color: #e4e4e4d0 !important;
+}
+
 .modal-images {
-    width: 5em;
+    height: 5em;
+    margin: 2em 1em 0 0;
   }
 
 .modal-item {
     border: solid #707070 2px;
     padding: .5em 1em .5em 1em;
+
+    display: flex;
 }
 
 .modal-title {
@@ -30,9 +36,6 @@
     font-size: 12px;
 }
 
-/* .modal-info-container {
-
-} */
 
 .modal-save-btn {    
     background-color: red;
@@ -41,4 +44,5 @@
     width: 4em;
     height: 4em;
     font-size: 6px;
+    margin: auto;
 }
