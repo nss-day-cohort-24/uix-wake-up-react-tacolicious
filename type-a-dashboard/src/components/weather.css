@@ -4,6 +4,7 @@
 .today_temp {
 	font-family: "houschka-rounded";
 	font-size: 3rem;
+	padding: 0;
 
 }
 
@@ -11,4 +12,18 @@
 	background-color: grey;
 	color: white;
 	height: 6rem;
+	margin: auto;
+	padding: 0;
+}
+
+.week_temp {
+	padding: 0;
+}
+
+.daily_temp {
+	border-left: 2px solid white;
+}
+
+.daily_temp_last {
+	border-right: 2px solid white;
 }

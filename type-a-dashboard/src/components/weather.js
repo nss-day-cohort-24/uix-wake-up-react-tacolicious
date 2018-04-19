@@ -47,11 +47,11 @@ class Weather extends React.Component {
           <div className="col-sm-4 today_temp">
             81°
           </div>
-          <div className="col-sm-8 row">
-            <div className="col-sm-3">Tue</div>
-            <div className="col-sm-3">Wed</div>
-            <div className="col-sm-3">Thu</div>
-            <div className="col-sm-3">Fri</div>
+          <div className="col-sm-8 row week_temp">
+            <div className="col-sm daily_temp">Tue</div>
+            <div className="col-sm daily_temp">Wed</div>
+            <div className="col-sm daily_temp">Thu</div>
+            <div className="col-sm daily_temp daily_temp_last">Fri</div>
           </div>
         </div>
       );
