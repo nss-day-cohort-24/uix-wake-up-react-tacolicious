@@ -1,2 +1,14 @@
+body {
+  background-image: url("https://c1.staticflickr.com/6/5518/12082465085_8773a5bd92_c.jpg");
+}
 
+#menu-btns {
+  display: inline-flex;
+}
+
+button.btn {
+  width: 8em;
+  height: 2.2em;
+  border-radius: 0;
+}
 

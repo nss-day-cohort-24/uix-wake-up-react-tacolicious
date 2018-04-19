@@ -1,0 +1,48 @@
+/* @import url(“https://use.typekit.net/jmn4wnl.css“); */
+
+
+
+#modal-container {    
+    display: grid;
+    grid-template-columns: auto;
+    font-family: "houschka-rounded";
+}
+
+.modal-content {
+    background-color: #e4e4e4d0 !important;
+}
+
+.modal-images {
+    height: 5em;
+    margin: 2em 1em 0 0;
+  }
+
+.modal-item {
+    border: solid #707070 2px;
+    padding: .5em 1em .5em 1em;
+
+    display: flex;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+.modal-source {
+    font-style: italic;
+}
+
+.modal-description {
+    font-size: 12px;
+}
+
+
+.modal-save-btn {    
+    background-color: red;
+    border: none;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    font-size: 6px;
+    margin: auto;
+}
