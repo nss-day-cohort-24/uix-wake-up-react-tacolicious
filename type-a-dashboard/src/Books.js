@@ -1,36 +1,49 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './index.css';
+import Search from './Search';
 
 class Books extends Component {
+    
+    onFormSubmit(query) {
+        this.setState({ query: query })
+        console.log("query", this.state.query);
+        this.componentDidMount();
+    }
 
     constructor(props) {
         super(props);
         this.state = {
           error: null,
           isLoaded: false,
-          items: []
+          items: [],
+          query: 'Harry Potter'
         };
+
+        this.onFormSubmit = this.onFormSubmit.bind(this);
       }
 
     componentDidMount() {
-        fetch(`http://openlibrary.org/search.json?q='Harry+Potter&limit=10`)
+        console.log("update", this.state.query)
+        console.log(`http://openlibrary.org/search.json?q='${this.state.query}'&limit=10`)
+        fetch(`http://openlibrary.org/search.json?q='${this.state.query}'&limit=10`)
         .then(res => {
             return res.json()
           }).then((result) => {
+              console.log(result);
               this.setState({
                 isLoaded: true,
                 items: result.docs
               });
+              console.log("did mount", this.state.query);
           })
-
-        }
-       
+    }  
+ 
         render(){
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
             let bookElements = books.map((bookObj, i) => { 
                 let url = '';
-                console.log(bookObj);
                 if (bookObj.hasOwnProperty('cover_i')) {
                     url = `http://covers.openlibrary.org/b/id/${bookObj.cover_i}-M.jpg?default=false`
                 } else if (bookObj.hasOwnProperty('id_goodreads')) {
@@ -49,8 +62,8 @@ class Books extends Component {
                 </div>
             )})
             return ( <div>
+                <Search onSubmit={this.onFormSubmit}/>
                 {bookElements}
-
             </div>
             )}
 }
