@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './index.css';
+// import './modal.css';
 
 class Books extends Component {
 
