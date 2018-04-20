@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Books from './Books';
+import Favs from './Favs';
 
 
 
-class BooksModal extends React.Component {
+class FavsModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -23,12 +23,12 @@ class BooksModal extends React.Component {
     render() {
       return (
         <div>
-          <Button color="danger" id="books-button" onClick={this.toggle}>Books</Button>
+          <Button color="danger" id="favorites-button" onClick={this.toggle}>Favorites</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} size="lg">
-            <ModalHeader toggle={this.toggle}>Books</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Favorites</ModalHeader>
   
             <ModalBody>
-                <Books />
+                <Favs />
             </ModalBody>
             
             <ModalFooter>
@@ -41,5 +41,5 @@ class BooksModal extends React.Component {
     }
   }
   
-  export default BooksModal;
+  export default FavsModal;
   

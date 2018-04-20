@@ -10,22 +10,35 @@
 
 .modal-content {
     background-color: #e4e4e4d0 !important;
+    margin: 8em 0 0 0;
 }
 
 .modal-images {
     height: 5em;
     margin: 2em 1em 0 0;
-  }
+}
+
 
 .books-images {
-height: 11em;
-margin: 0 0 0 auto;
+    height: 11em;
+    margin: 0 auto 0 auto;
 }
 
 .modal-item {
     border: solid #707070 2px;
     padding: .5em 1em .5em 1em;
     display: flex;
+}
+
+.modal-item > a {
+    display: flex;
+    color: black;
+}
+
+.modal-item > a:active {
+    display: flex;
+    color: black;
+    text-decoration: none;
 }
 
 .modal-title {
@@ -48,10 +61,39 @@ margin: 0 0 0 auto;
     width: 4em;
     height: 4em;
     font-size: 6px;
-    margin: auto;
+    margin: auto 4em auto 0em;
 }
 
 .modal-info-container {
     margin: auto 0;
+    /* border: solid;
+    width: 11em; */
 }
 
+.fav-headlines, .fav-books {
+    border-bottom: solid black 1px;
+}
+
+#news-button {
+ background-color: #0000009c;
+ border-bottom: solid #dd3545 5px;   
+ border-top: none;
+ border-left: none;
+ border-right: none;
+}
+
+#books-button {
+ background-color: #0000009c;
+ border-bottom: solid #1AF20D 5px;   
+ border-top: none;
+ border-left: none;
+ border-right: none;
+}
+
+#favorites-button {
+ background-color: #0000009c;
+ border-bottom: solid #0A2FD1 5px;   
+ border-top: none;
+ border-left: none;
+ border-right: none;
+}

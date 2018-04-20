@@ -10,12 +10,8 @@ button.btn {
   width: 8em;
   height: 2.2em;
   border-radius: 0;
+  /* border-right: solid white 1px; */
 }
-/* 
-.btn-danger:not(:disabled):not(.disabled):active, .btn-danger:not(:disabled):not(.disabled).active, .show > .btn-danger.dropdown-toggle {
-  background-color: #73131d;
-  border-color: #73131d;
-} */
 
 #footer-nav {
   position: absolute;

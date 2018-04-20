@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Modal.css';
-import { Modal } from 'react-bootstrap';
+// import { Modal } from 'react-bootstrap';
 
 
 
@@ -25,6 +25,7 @@ class News extends React.Component {
       .then(
         (result) => {
             console.log("res.json(): ", result.articles);
+            console.log("IS THIS WORKING?");
           this.setState({
             isLoaded: true,
             articles: result.articles
@@ -54,21 +55,28 @@ class News extends React.Component {
         } else {
 
           let myHeadlines = this.state.articles;
+          console.log("is this working");
           // console.log('myHeadlines',myHeadlines);
           let articleElements = myHeadlines.map((article) => 
+              // {}
 
               <div className="modal-item" key={article.title}>
+
+                <a className="clickable-news-area" href={article.url}>
                   <div className="modal-info-container">
                       <div className="modal-title">{article.title}</div>
                       <div className="modal-source">{article.source.name}</div>
                       <div className="modal-description">{article.description}</div>
                   </div>
                   <img className="modal-images" src={article.urlToImage}/>
+                </a>
+
                   <button className="modal-save-btn" onClick={saveClicked}>Save</button>
               </div>
           );
 
           articleElements.splice(10, articleElements.length - 10);
+          // console.log('article',article);
             
           return (
               <div>
