@@ -13,7 +13,7 @@ class News extends React.Component {
           error: null,
           isLoaded: false,
           articles: [],
-          loggedin: false
+          loggedin: ''
       }
   }
       
@@ -61,7 +61,7 @@ class News extends React.Component {
 
           let myHeadlines = this.state.articles;
           console.log('myHeadlines',myHeadlines);
-          let button = (this.state.loggedin) ? <button className="modal-save-btn" onClick={saveClicked}>Save</button> : null;
+          let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={saveClicked}>Save</button> : null;
           let articleElements = myHeadlines.map((article) => 
 
               <div className="modal-item" key={article.title}>

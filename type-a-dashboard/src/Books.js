@@ -20,7 +20,7 @@ class Books extends Component {
           isLoaded: false,
           items: [],
           query: '',
-          loggedin: false
+          loggedin: ''
         };
 
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -52,7 +52,7 @@ class Books extends Component {
             console.log(this.state);
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
-            let button = (this.state.loggedin) ? <button>Save</button> : null;
+            let button = (this.state.loggedin !== '') ? <button>Save</button> : null;
             let bookElements = books.map((bookObj, i) => { 
                 let url = '';
                 if (bookObj.hasOwnProperty('cover_i')) {

@@ -17,21 +17,19 @@ class App extends Component {
     super(props);
 
     this.state = {
-      loggedin : false
+      loggedin : '',
     };
     this.changeState = this.changeState.bind(this);
   }
 
   changeState(input) {
-    console.log("you are here")
     this.setState({ loggedin : input })
-    console.log("THIS IS STATE", this.state.loggedin);
   }
 
   render() {
+    console.log("STATE APP", this.state);
     return (
       <div className="App">
-      {console.log("i render after login")}
         {/* <News /> */}
         <div id="menu-btns">
           <NewsModal loggedin={this.state.loggedin}/>
