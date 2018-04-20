@@ -22,7 +22,7 @@ class Weather extends React.Component {
             isLoaded: true,
             days: result.daily.data
           });
-          console.log(this.state.days);
+          // console.log(this.state.days);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
