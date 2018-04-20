@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import News from './News';
-import Books from './Books';
-// import Example from './API_Creds';
+// import News from './News';
+// import Books from './Books';
 import APICreds from './API_CredsModal';
 import NewsModal from './NewsModal';
 import BooksModal from './BooksModal';
+import FavsModal from './FavsModal';
 import Logbutton from './components/Logbutton';
 import Weather from './components/weather.js';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -30,6 +30,15 @@ class App extends Component {
     console.log("STATE APP", this.state);
     return (
       <div className="App">
+              <Logbutton />
+        <div id="footer-nav">  
+            <div id="menu-btns">
+              <NewsModal />
+              <BooksModal />
+              <FavsModal />
+              <APICreds />
+            </div>
+          <Weather />
         {/* <News /> */}
         <div id="menu-btns">
           <NewsModal loggedin={this.state.loggedin}/>
@@ -38,7 +47,6 @@ class App extends Component {
           {/* <Books /> */}
           <Logbutton logState={this.changeState}/>
         </div>
-        <Weather />
       </div>
     );
   }

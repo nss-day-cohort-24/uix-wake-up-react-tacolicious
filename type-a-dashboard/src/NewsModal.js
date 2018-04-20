@@ -26,7 +26,7 @@ class NewsModal extends React.Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>News</Button>
+        <Button color="danger" id="news-button" onClick={this.toggle}>News</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} size="lg">
           <ModalHeader toggle={this.toggle}>Today's Headlines</ModalHeader>
 
@@ -36,7 +36,7 @@ class NewsModal extends React.Component {
           
           <ModalFooter>
             {/* <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '} */}
-            <Button color="secondary" onClick={this.toggle}>Close</Button>
+            <Button color="secondary" className="modal-close-button" onClick={this.toggle}>Close</Button>
           </ModalFooter>
         </Modal>
       </div>

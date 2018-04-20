@@ -60,7 +60,8 @@ class Logbutton extends React.Component {
 
 		return(
 			<div>
-				<button onClick={this.loginWithGoogle} className="btn btn-primary log">Login</button>
+
+				<button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>
         		<button onClick={this.logout}>Logout</button>
 			</div>
 		)

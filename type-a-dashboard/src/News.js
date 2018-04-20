@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Modal.css';
+
 import { Modal } from 'react-bootstrap';
 import { rebase } from './config/constants';
 
@@ -29,6 +30,7 @@ class News extends React.Component {
       .then(
         (result) => {
             console.log("res.json(): ", result.articles);
+            console.log("IS THIS WORKING?");
           this.setState({
             isLoaded: true,
             articles: result.articles,
@@ -83,22 +85,27 @@ class News extends React.Component {
         } else {
 
           let myHeadlines = this.state.articles;
+
           console.log('myHeadlines',myHeadlines);
           let articleElements = myHeadlines.map((article, index) => {
             let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, index)}>Save</button> : null;
               return (
               <div className="modal-item" key={article.title}>
+
+                <a className="clickable-news-area" href={article.url}>
                   <div className="modal-info-container">
                       <div ref={"NwTitle" + index} className="modal-title">{article.title}</div>
                       <div ref={"NwSource" + index} className="modal-source">{article.source.name}</div>
                       <div ref={"NwDesc" + index} className="modal-description">{article.description}</div>
                   </div>
                   <img ref={"NwImg" + index} className="modal-images" src={article.urlToImage}/>
-                  {button}
+                </a>                  
+                 {button}
               </div>
           )});
 
           articleElements.splice(10, articleElements.length - 10);
+          // console.log('article',article);
             
           return (
               <div>

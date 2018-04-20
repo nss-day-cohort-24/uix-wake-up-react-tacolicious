@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './index.css';
 import Search from './Search';
 import { rebase } from './config/constants';
@@ -84,6 +84,14 @@ class Books extends Component {
                 } 
                 return (
                 <div key={i}>
+                    <div className="modal-item">
+                        <div className="modal-info-container">
+                            <div className="modal-title">{bookObj.title}</div>
+                            <div className="modal-author">{bookObj.author_name}</div>
+                        </div>
+                        <img className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        <button className="modal-save-btn">Save</button>
+                    </div>
                     <div className="bookInformation">
                         <img ref={"BkImg" + i} src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
                         <div ref={"BkTitle" + i} className="bookTitle">{bookObj.title}</div>
