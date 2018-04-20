@@ -1,0 +1,13 @@
+input {
+	margin: 0;
+	padding: 0;
+	border-radius: 5px;
+	border-color: grey;
+	background-color: rgba(127, 127, 127, 0.75);
+	height: 3rem;
+}
+
+::placeholder {
+	color: white;
+	font-size: 1.2rem;
+}
