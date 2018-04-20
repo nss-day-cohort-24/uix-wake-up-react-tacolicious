@@ -55,12 +55,14 @@ class Books extends Component {
                 } 
                 return (
                 <div key={i}>
-                    <div className="bookInformation">
-                        <img src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
-                        <div className="bookTitle">{bookObj.title}</div>
-                        <div className="bookAuthor">{bookObj.author_name}</div>
+                    <div className="modal-item">
+                        <div className="modal-info-container">
+                            <div className="modal-title">{bookObj.title}</div>
+                            <div className="modal-author">{bookObj.author_name}</div>
+                        </div>
+                        <img className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        <button className="modal-save-btn">Save</button>
                     </div>
-                    <button>Save</button>
                 </div>
             )})
             return ( <div>

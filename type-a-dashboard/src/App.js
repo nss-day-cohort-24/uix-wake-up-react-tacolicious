@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import News from './News';
 import Books from './Books';
-// import Example from './API_Creds';
 import APICreds from './API_CredsModal';
 import NewsModal from './NewsModal';
 import BooksModal from './BooksModal';
@@ -15,16 +14,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* <News /> */}
-        {/* <div> */}
-          <div id="menu-btns">
-            <NewsModal />
-            <BooksModal />
-            <APICreds />
-            <Logbutton />
-          </div>
-        {/* </div> */}
-        <Weather />
+        <div id="footer-nav">  
+            <div id="menu-btns">
+              <NewsModal />
+              <BooksModal />
+              <APICreds />
+              <Logbutton />
+            </div>
+          <Weather />
+        </div>
       </div>
     );
   }
