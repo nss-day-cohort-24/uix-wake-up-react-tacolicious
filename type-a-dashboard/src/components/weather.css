@@ -1,14 +1,63 @@
 @import url("https://use.typekit.net/jmn4wnl.css");
 
+.weather {
+	background-color: rgba(127, 127, 127, 0.25);
+	color: white;
+	font-family: "houschka-rounded", sans serif;
+	text-transform: uppercase;
+	height: 6rem;
+	margin: auto;
+	padding: 0;
+}
 
-.today_temp {
+.today_temp, .today_icon {
 	font-family: "houschka-rounded";
-	font-size: 3rem;
+	font-size: 1rem;
+	padding: 0;
+	margin: auto;
 
 }
 
-.weather {
-	background-color: grey;
+.today_temp {
+	text-align: center;
+}
+
+.week_weather {
+	padding: 0;
+	margin: 0;
+}
+
+.daily_weather {
+	border-left: 2px solid white;
+	padding: .25rem;
+}
+
+.daily_weather_last {
+	border-right: 2px solid white;
+}
+
+.daily_weather_day, .daily_weather_icon, .daily_weather_temp {
 	color: white;
-	height: 6rem;
+	border-radius: 5px;
+	text-align: center;
+	border-radius: 5px;
+	padding: 0;
+	margin-top: 0;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: .5rem;
+	font-size: 1rem;
+}
+
+.daily_weather_day {
+	color: white;
+	background-color: rgba(127, 127, 127, 1);
+	width: 3rem;
+	text-align: center;
+	border-radius: 5px;
+}
+
+.daily_weather_icon {
+	width: 33%;
+	height: 33%;
 }

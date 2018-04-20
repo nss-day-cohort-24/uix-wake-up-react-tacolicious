@@ -1,5 +1,6 @@
 import React from 'react';
 import weatherKey from './weather-key';
+import Week_weather from './week_weather';
 import './weather.css';
 
 class Weather extends React.Component {
@@ -13,15 +14,15 @@ class Weather extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`, {mode : 'no-cors'})
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result.daily)
           this.setState({
             isLoaded: true,
             days: result.daily.data
           });
+          console.log(this.state.days);
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -44,15 +45,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          <div className="col-sm-4 today_temp">
-            81°
-          </div>
-          <div className="col-sm-8 row">
-            <div className="col-sm-3">Tue</div>
-            <div className="col-sm-3">Wed</div>
-            <div className="col-sm-3">Thu</div>
-            <div className="col-sm-3">Fri</div>
-          </div>
+          <Week_weather days={this.state.days} />
         </div>
       );
     }
