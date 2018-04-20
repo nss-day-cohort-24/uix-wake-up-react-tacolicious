@@ -18,11 +18,13 @@ class Favs extends React.Component {
                 <div>
 
                     <div>
-                        <h5 className="fav-headlines">Your Headlines</h5>
+                        <h5 className="fav-headlines-header">Your Headlines</h5>
+                        <div className="fav-headlines-items"></div>
                     </div>
 
                     <div>
-                        <h5 className="fav-books">Your Books</h5>
+                        <h5 className="fav-books-header">Your Books</h5>
+                        <div className="fav-books-items"></div>
                     </div>
 
                 </div>

@@ -33,7 +33,7 @@ class FavsModal extends React.Component {
             
             <ModalFooter>
               {/* <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '} */}
-              <Button color="secondary" onClick={this.toggle}>Close</Button>
+              <Button color="secondary" className="modal-close-button" id="apis-button" onClick={this.toggle}>Close</Button>
             </ModalFooter>
           </Modal>
         </div>

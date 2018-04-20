@@ -22,7 +22,7 @@ class APICreds extends React.Component {
   render() {
     return (
       <div>
-        <Button color="danger" onClick={this.toggle}>APIs</Button>
+        <Button color="danger" className="modal-close-button" id="apis-button" onClick={this.toggle}>APIs</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}>APIs</ModalHeader>
 
@@ -31,7 +31,7 @@ class APICreds extends React.Component {
               <li><a href="https://darksky.net/">Dark Sky</a></li>
               <li><a href="https://openlibrary.org/">Open Library</a></li>
               <li><a href="https://newsapi.org/">News API</a></li>
-              <li><a href="flickr.com/services/api/">Flickr</a></li>
+              <li><a href="flickr.com/services/api/">Google Maps</a></li>
             </ul>
           </ModalBody>
           
