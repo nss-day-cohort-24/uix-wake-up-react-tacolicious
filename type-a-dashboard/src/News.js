@@ -43,9 +43,9 @@ class News extends React.Component {
 
       
     render() {
-      function saveClicked() {
-        console.log("save button clicked.");
-      }
+      // function saveClicked() {
+      //   console.log("save button clicked.");
+      // }
         const { error, isLoaded, articles } = this.state;
         if (error) {
           return <div>Error: {error.message}</div>;
@@ -54,7 +54,7 @@ class News extends React.Component {
         } else {
 
           let myHeadlines = this.state.articles;
-          console.log('myHeadlines',myHeadlines);
+          // console.log('myHeadlines',myHeadlines);
           let articleElements = myHeadlines.map((article) => 
 
               <div className="modal-item" key={article.title}>

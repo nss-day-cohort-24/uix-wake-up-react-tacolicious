@@ -20,7 +20,6 @@ class App extends Component {
           <NewsModal />
           <BooksModal />
           <APICreds />
-          {/* <Books /> */}
           <Logbutton />
         </div>
         <Weather />
