@@ -8,7 +8,7 @@ class BooksModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        modal: false
+        loggedin: ''
       };
   
       this.toggle = this.toggle.bind(this);
@@ -16,11 +16,15 @@ class BooksModal extends React.Component {
   
     toggle() {
       this.setState({
-        modal: !this.state.modal
+        modal: !this.state.modal,
+        loggedin: this.props.loggedin
       });
     }
   
     render() {
+      // if(loggedin !== '') {
+
+      // }
       return (
         <div>
           <Button color="danger" id="books-button" onClick={this.toggle}>Books</Button>
@@ -28,7 +32,7 @@ class BooksModal extends React.Component {
             <ModalHeader toggle={this.toggle}>Books</ModalHeader>
   
             <ModalBody>
-                <Books />
+                <Books loggedin={this.state.loggedin}/>
             </ModalBody>
             
             <ModalFooter>
