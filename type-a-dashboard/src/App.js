@@ -16,12 +16,14 @@ class App extends Component {
     return (
       <div className="App">
         {/* <News /> */}
-        <div id="menu-btns">
-          <NewsModal />
-          <BooksModal />
-          <APICreds />
-          <Logbutton />
-        </div>
+        {/* <div> */}
+          <div id="menu-btns">
+            <NewsModal />
+            <BooksModal />
+            <APICreds />
+            <Logbutton />
+          </div>
+        {/* </div> */}
         <Weather />
       </div>
     );

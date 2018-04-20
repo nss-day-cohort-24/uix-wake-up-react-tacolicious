@@ -43,9 +43,9 @@ class News extends React.Component {
 
       
     render() {
-      // function saveClicked() {
-      //   console.log("save button clicked.");
-      // }
+      function saveClicked() {
+        console.log("save button clicked.");
+      }
         const { error, isLoaded, articles } = this.state;
         if (error) {
           return <div>Error: {error.message}</div>;
