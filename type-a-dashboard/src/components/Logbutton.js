@@ -43,7 +43,7 @@ class Logbutton extends React.Component {
 	}
 
 	saveUser (user) {
-		return rebase.initializedApp.database().ref().child(`wuusers/${user.uid}/info`)
+		return rebase.initializedApp.database().ref().child(`${user.uid}/info`)
 			.update({
 			email: user.email,
 			uid: user.uid

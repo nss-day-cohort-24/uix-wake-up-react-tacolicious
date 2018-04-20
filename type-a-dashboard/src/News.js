@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Modal.css';
 import { Modal } from 'react-bootstrap';
+import { rebase } from './config/constants';
 
 
 
@@ -13,8 +14,10 @@ class News extends React.Component {
           error: null,
           isLoaded: false,
           articles: [],
-          loggedin: ''
+          loggedin: '',
+          saveNews: []
       }
+      this.syncing = this.syncing.bind(this);
   }
       
 
@@ -28,13 +31,9 @@ class News extends React.Component {
             console.log("res.json(): ", result.articles);
           this.setState({
             isLoaded: true,
-            articles: result.articles
+            articles: result.articles,
+            loggedin: this.props.loggedin
           });
-          if (this.props.loggedin) {
-            this.setState({
-              loggedin: this.props.loggedin
-            })
-          }
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -45,10 +44,34 @@ class News extends React.Component {
             error
           });
         })
+        this.syncing();
   }
+
+  fave(input){
+    console.log("states", this.state.loggedin)
+    let object = {
+        img : this.refs[`${`NwImg` + input}`].src,
+        title : this.refs[`${`NwTitle` + input}`].textContent,
+        source : this.refs[`${`NwSource` + input}`].textContent,
+        desc : this.refs[`${`NwDesc` + input}`].textContent
+    }
+    this.setState({
+        saveNews: this.state.saveNews.concat([object])
+    });
+}  
+
+  syncing() {
+      console.log("I AM SYNCING")
+      this.ref = rebase.syncState(`${this.props.loggedin}/NEWS`, {
+          context: this,
+          state: 'saveNews',
+          asArray: true,
+        });
+  }  
 
       
     render() {
+      console.log("STATE RENDER", this.state)
       function saveClicked() {
         console.log("save button clicked.");
       }
@@ -61,19 +84,19 @@ class News extends React.Component {
 
           let myHeadlines = this.state.articles;
           console.log('myHeadlines',myHeadlines);
-          let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={saveClicked}>Save</button> : null;
-          let articleElements = myHeadlines.map((article) => 
-
+          let articleElements = myHeadlines.map((article, index) => {
+            let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, index)}>Save</button> : null;
+              return (
               <div className="modal-item" key={article.title}>
                   <div className="modal-info-container">
-                      <div className="modal-title">{article.title}</div>
-                      <div className="modal-source">{article.source.name}</div>
-                      <div className="modal-description">{article.description}</div>
+                      <div ref={"NwTitle" + index} className="modal-title">{article.title}</div>
+                      <div ref={"NwSource" + index} className="modal-source">{article.source.name}</div>
+                      <div ref={"NwDesc" + index} className="modal-description">{article.description}</div>
                   </div>
-                  <img className="modal-images" src={article.urlToImage}/>
+                  <img ref={"NwImg" + index} className="modal-images" src={article.urlToImage}/>
                   {button}
               </div>
-          );
+          )});
 
           articleElements.splice(10, articleElements.length - 10);
             

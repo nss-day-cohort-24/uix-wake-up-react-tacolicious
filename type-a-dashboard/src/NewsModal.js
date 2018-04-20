@@ -24,8 +24,6 @@ class NewsModal extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-    console.log(this.props.loggedin)
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>News</Button>

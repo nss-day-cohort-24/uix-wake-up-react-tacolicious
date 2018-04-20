@@ -22,6 +22,9 @@ class BooksModal extends React.Component {
     }
   
     render() {
+      // if(loggedin !== '') {
+
+      // }
       return (
         <div>
           <Button color="danger" onClick={this.toggle}>Books</Button>
