@@ -19,7 +19,8 @@ class Books extends Component {
           error: null,
           isLoaded: false,
           items: [],
-          query: 'Harry Potter'
+          query: '',
+          loggedin: false
         };
 
         this.onFormSubmit = this.onFormSubmit.bind(this);
@@ -37,13 +38,21 @@ class Books extends Component {
                 isLoaded: true,
                 items: result.docs
               });
+              if (this.props.loggedin) {
+                this.setState({
+                  loggedin: this.props.loggedin
+                })
+              }
               console.log("did mount", this.state.query);
           })
     }  
  
         render(){
+            console.log(this.props.loggedin);
+            console.log(this.state);
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
+            let button = (this.state.loggedin) ? <button>Save</button> : null;
             let bookElements = books.map((bookObj, i) => { 
                 let url = '';
                 if (bookObj.hasOwnProperty('cover_i')) {
@@ -60,7 +69,7 @@ class Books extends Component {
                         <div className="bookTitle">{bookObj.title}</div>
                         <div className="bookAuthor">{bookObj.author_name}</div>
                     </div>
-                    <button>Save</button>
+                    {button}
                 </div>
             )})
             return ( <div>

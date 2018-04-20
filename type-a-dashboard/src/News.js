@@ -12,7 +12,8 @@ class News extends React.Component {
       this.state = {
           error: null,
           isLoaded: false,
-          articles: []
+          articles: [],
+          loggedin: false
       }
   }
       
@@ -29,6 +30,11 @@ class News extends React.Component {
             isLoaded: true,
             articles: result.articles
           });
+          if (this.props.loggedin) {
+            this.setState({
+              loggedin: this.props.loggedin
+            })
+          }
         },
         // Note: it's important to handle errors here
         // instead of a catch() block so that we don't swallow
@@ -55,6 +61,7 @@ class News extends React.Component {
 
           let myHeadlines = this.state.articles;
           console.log('myHeadlines',myHeadlines);
+          let button = (this.state.loggedin) ? <button className="modal-save-btn" onClick={saveClicked}>Save</button> : null;
           let articleElements = myHeadlines.map((article) => 
 
               <div className="modal-item" key={article.title}>
@@ -64,7 +71,7 @@ class News extends React.Component {
                       <div className="modal-description">{article.description}</div>
                   </div>
                   <img className="modal-images" src={article.urlToImage}/>
-                  <button className="modal-save-btn" onClick={saveClicked}>Save</button>
+                  {button}
               </div>
           );
 

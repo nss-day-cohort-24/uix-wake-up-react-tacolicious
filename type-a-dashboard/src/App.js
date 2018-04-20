@@ -12,16 +12,33 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedin : false
+    };
+    this.changeState = this.changeState.bind(this);
+  }
+
+  changeState(input) {
+    console.log("you are here")
+    this.setState({ loggedin : input })
+    console.log("THIS IS STATE", this.state.loggedin);
+  }
+
   render() {
     return (
       <div className="App">
+      {console.log("i render after login")}
         {/* <News /> */}
         <div id="menu-btns">
-          <NewsModal />
-          <BooksModal />
+          <NewsModal loggedin={this.state.loggedin}/>
+          <BooksModal loggedin={this.state.loggedin}/>
           <APICreds />
           {/* <Books /> */}
-          <Logbutton />
+          <Logbutton logState={this.changeState}/>
         </div>
         <Weather />
       </div>

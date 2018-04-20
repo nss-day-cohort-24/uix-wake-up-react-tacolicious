@@ -9,7 +9,8 @@ class NewsModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      loggedin: false
     };
 
     this.toggle = this.toggle.bind(this);
@@ -19,9 +20,16 @@ class NewsModal extends React.Component {
     this.setState({
       modal: !this.state.modal
     });
+    if (this.props.loggedin) {
+      this.setState({
+        loggedin: this.props.loggedin
+      })
+    }
   }
 
   render() {
+    console.log(this.state)
+    console.log(this.props.loggedin)
     return (
       <div>
         <Button color="danger" onClick={this.toggle}>News</Button>
@@ -29,7 +37,7 @@ class NewsModal extends React.Component {
           <ModalHeader toggle={this.toggle}>Today's Headlines</ModalHeader>
 
           <ModalBody>
-              <News />
+              <News loggedin={this.state.loggedin}/>
           </ModalBody>
           
           <ModalFooter>
