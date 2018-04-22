@@ -20,8 +20,9 @@ class Logbutton extends React.Component {
 
 	submitState(){
 		const {loggedin} = this.state;
+		console.log(this.props);
 		const {logState} = this.props;
-		this.logState(loggedin);
+		logState(loggedin);
 	}
 
 	logout () {

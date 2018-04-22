@@ -30,7 +30,7 @@ class App extends Component {
     console.log("STATE APP", this.state);
     return (
       <div className="App">
-              <Logbutton />
+          <Logbutton logState={this.changeState}/>
         <div id="footer-nav">  
             {/* <div id="menu-btns">
               <NewsModal />
@@ -44,7 +44,6 @@ class App extends Component {
           <BooksModal loggedin={this.state.loggedin}/>
           <APICreds />
           {/* <Books /> */}
-          <Logbutton logState={this.changeState}/>
         </div>
           <Weather />
       </div>
