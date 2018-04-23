@@ -73,7 +73,7 @@ class Books extends Component {
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
             let bookElements = books.map((bookObj, i) => {
-                let button = (this.state.loggedin !== '') ? <button onClick={this.fave.bind(this, i)}>Save</button> : null; 
+                let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, i)}>Save</button> : null; 
                 let url = '';
                 if (bookObj.hasOwnProperty('cover_i')) {
                     url = `http://covers.openlibrary.org/b/id/${bookObj.cover_i}-M.jpg?default=false`
@@ -86,18 +86,17 @@ class Books extends Component {
                 <div key={i}>
                     <div className="modal-item">
                         <div className="modal-info-container">
-                            <div className="modal-title">{bookObj.title}</div>
-                            <div className="modal-author">{bookObj.author_name}</div>
+                            <div ref={"BkTitle" + i} className="modal-title">{bookObj.title}</div>
+                            <div ref={"BkAuthor" + i} className="modal-author">{bookObj.author_name}</div>
                         </div>
-                        <img className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
-                        <button className="modal-save-btn">Save</button>
+                        <img ref={"BkImg" + i} className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        {button}
                     </div>
-                    <div className="bookInformation">
-                        <img ref={"BkImg" + i} src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
-                        <div ref={"BkTitle" + i} className="bookTitle">{bookObj.title}</div>
-                        <div ref={"BkAuthor" + i} className="bookAuthor">{bookObj.author_name}</div>
-                    </div>
-                    {button}
+                    {/* <div className="bookInformation">
+                        <img  src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        <div className="bookTitle">{bookObj.title}</div>
+                        <div  className="bookAuthor">{bookObj.author_name}</div>
+                    </div> */}
                 </div>
             )})
             return ( <div>

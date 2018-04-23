@@ -87,15 +87,12 @@ class Logbutton extends React.Component {
 				logInOrOutButton = <button onClick={this.logout} className="btn btn-primary log" id="logout-button">Logout</button>;
 			}
 
-
-
 		return(
 			<div>
 				{logInOrOutButton}
-				{/* <p>TESTING</p> */}
 			</div>
 		)
-	}
+  }
 }
 
 export default Logbutton;
