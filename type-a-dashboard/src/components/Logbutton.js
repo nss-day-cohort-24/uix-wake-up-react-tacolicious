@@ -53,6 +53,8 @@ class Logbutton extends React.Component {
 	
 	loginToLogout() {
 		console.log("login button swap called");
+
+		
 	}
 	
 	
@@ -84,7 +86,7 @@ class Logbutton extends React.Component {
 		return(
 			<div>
 				<button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>
-        		<button onClick={this.logout}>Logout</button>
+        		<button onClick={this.logout} id="logout-button">Logout</button>
 			</div>
 		)
 	}
