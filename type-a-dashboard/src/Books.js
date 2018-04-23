@@ -92,11 +92,6 @@ class Books extends Component {
                         <img ref={"BkImg" + i} className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
                         {button}
                     </div>
-                    {/* <div className="bookInformation">
-                        <img  src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
-                        <div className="bookTitle">{bookObj.title}</div>
-                        <div  className="bookAuthor">{bookObj.author_name}</div>
-                    </div> */}
                 </div>
             )})
             return ( <div>

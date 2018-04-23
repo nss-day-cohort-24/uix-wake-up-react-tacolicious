@@ -71,13 +71,8 @@ class News extends React.Component {
           asArray: true,
         });
   }  
-
-      
+     
     render() {
-      console.log("STATE RENDER", this.state)
-      function saveClicked() {
-        console.log("save button clicked.");
-      }
         const { error, isLoaded, articles } = this.state;
         if (error) {
           return <div>Error: {error.message}</div>;
@@ -87,12 +82,10 @@ class News extends React.Component {
 
           let myHeadlines = this.state.articles;
 
-          console.log('myHeadlines',myHeadlines);
           let articleElements = myHeadlines.map((article, index) => {
             let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, index)}>Save</button> : null;
               return (
               <div className="modal-item" key={article.title}>
-
                 <a ref={"nWURL" + index} className="clickable-news-area" href={article.url}>
                   <div className="modal-info-container">
                       <div ref={"NwTitle" + index} className="modal-title">{article.title}</div>

@@ -3,9 +3,6 @@ import { googleProvider, rebase }  from '../config/constants';
 import './Logbutton.css';
 import App from '../App.js';
 
-
-
-
 class Logbutton extends React.Component {
 
 	constructor(props) {
@@ -40,7 +37,6 @@ class Logbutton extends React.Component {
 		})
 	}
 
-
 	loginWithGoogle () {
 		this.loginToLogout();
 		return rebase.initializedApp.auth().signInWithPopup(googleProvider)
@@ -49,18 +45,11 @@ class Logbutton extends React.Component {
 			this.saveUser(data.user);
 		});
 	}
-	
-	
+		
 	loginToLogout() {
-		console.log("login button swap called");
-
-
-
-		
+		console.log("login button swap called");	
 	}
-	
-	
-		
+			
 		saveUser (user) {
 			return rebase.initializedApp.database().ref().child(`${user.uid}/info`)
 			.update({
@@ -79,11 +68,12 @@ class Logbutton extends React.Component {
 			
 			let logInOrOutButton = null;
 
-			if (this.state.loggedin !== '') {
+			if (this.state.loggedin === '') {
+				console.log("login button")
 				logInOrOutButton = <button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>;
 			}
 			else {
-				
+				console.log("logout")				
 				logInOrOutButton = <button onClick={this.logout} className="btn btn-primary log" id="logout-button">Logout</button>;
 			}
 
