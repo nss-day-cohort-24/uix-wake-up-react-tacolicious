@@ -24,14 +24,22 @@ class Favs extends React.Component {
             state: 'saveNews',
             asArray: true
           });
-    }  
+    }
+    
+    remove (index) {
+        var newList = this.state.saveNews;
+        newList.splice(index, 1);
+        this.setState({
+            saveNews: newList
+        });
+    }
         
       render() {
           console.log(this.state.saveNews)
           let Favs = this.state.saveNews;
           
           let articleElements = Favs.map((favArticle, index) => {
-            // let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, index)}>Save</button> : null;
+            let deleteButton = (this.state.loggedin !== '') ? <button className="modal-delete-btn" onClick={this.remove.bind(this, index)}>Delete</button> : null;
               return (
               <div className="modal-item" key={favArticle.title}>
                 <a className="clickable-news-area" href={favArticle.url}>
@@ -42,7 +50,7 @@ class Favs extends React.Component {
                   </div>
                   <img ref={"NwImg" + index} className="modal-images" src={favArticle.img}/>
                 </a>                  
-                 {/* {button} */}
+                 {deleteButton}
               </div>
           )});
             return (
