@@ -35,13 +35,13 @@ class App extends Component {
             {/* <div id="menu-btns">
               <NewsModal />
               <BooksModal />
-              <FavsModal />
               <APICreds />
             </div> */}
         {/* <News /> */}
         <div id="menu-btns">
           <NewsModal loggedin={this.state.loggedin}/>
           <BooksModal loggedin={this.state.loggedin}/>
+          <FavsModal loggedin={this.state.loggedin}/>
           <APICreds />
           {/* <Books /> */}
         </div>

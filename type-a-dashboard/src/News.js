@@ -55,7 +55,8 @@ class News extends React.Component {
         img : this.refs[`${`NwImg` + input}`].src,
         title : this.refs[`${`NwTitle` + input}`].textContent,
         source : this.refs[`${`NwSource` + input}`].textContent,
-        desc : this.refs[`${`NwDesc` + input}`].textContent
+        desc : this.refs[`${`NwDesc` + input}`].textContent,
+        url: this.refs[`${`nWURL`}` + input].href
     }
     this.setState({
         saveNews: this.state.saveNews.concat([object])
@@ -92,7 +93,7 @@ class News extends React.Component {
               return (
               <div className="modal-item" key={article.title}>
 
-                <a className="clickable-news-area" href={article.url}>
+                <a ref={"nWURL" + index} className="clickable-news-area" href={article.url}>
                   <div className="modal-info-container">
                       <div ref={"NwTitle" + index} className="modal-title">{article.title}</div>
                       <div ref={"NwSource" + index} className="modal-source">{article.source.name}</div>

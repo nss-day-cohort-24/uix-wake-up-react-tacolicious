@@ -2,13 +2,12 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import Favs from './Favs';
 
-
-
 class FavsModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        modal: false
+        modal: false,
+        loggedin: ''
       };
   
       this.toggle = this.toggle.bind(this);
@@ -16,7 +15,8 @@ class FavsModal extends React.Component {
   
     toggle() {
       this.setState({
-        modal: !this.state.modal
+        modal: !this.state.modal,
+        loggedin: this.props.loggedin
       });
     }
   
@@ -28,7 +28,7 @@ class FavsModal extends React.Component {
             <ModalHeader toggle={this.toggle}>Favorites</ModalHeader>
   
             <ModalBody>
-                <Favs />
+                <Favs loggedin={this.state.loggedin}/>
             </ModalBody>
             
             <ModalFooter>
