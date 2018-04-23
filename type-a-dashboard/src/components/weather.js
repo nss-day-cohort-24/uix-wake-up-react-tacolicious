@@ -3,7 +3,7 @@ import {weatherKey} from './weather-key';
 import Week_weather from './week_weather';
 import './weather.css';
 
-class Weather(props) extends React.Component {
+class Weather extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -34,6 +34,7 @@ class App extends Component {
         });
       }
     )
+  }
 
 
   constructor(props) {
@@ -55,6 +56,7 @@ class App extends Component {
     console.log("STATE APP", this.state);
     return (
       <div className="App">
+          <SearchBar onSearch={this.performSearch}/>
           <Logbutton logState={this.changeState}/>
         <div id="footer-nav">
         <div id="menu-btns">
@@ -63,7 +65,6 @@ class App extends Component {
           <FavsModal loggedin={this.state.loggedin}/>
           <APICreds />
         </div>
-        <SearchBar onSearch={this.performSearch}/>
         <Weather lat={this.state.latitude} lng={this.state.longitude}/>
       </div>
     </div>
