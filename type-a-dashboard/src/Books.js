@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import './index.css';
 import Search from './Search';
+import { rebase } from './config/constants';
 
 // import './modal.css';
 
@@ -19,11 +20,34 @@ class Books extends Component {
           error: null,
           isLoaded: false,
           items: [],
-          query: 'Harry Potter'
+          query: '',
+          loggedin: '',
+          saveBooks: []
         };
 
         this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.syncing = this.syncing.bind(this);
       }
+
+    fave(input){
+        let object = {
+            img : this.refs[`${`BkImg` + input}`].src,
+            title : this.refs[`${`BkTitle` + input}`].textContent,
+            author : this.refs[`${`BkAuthor` + input}`].textContent,
+        }
+        this.setState({
+            saveBooks: this.state.saveBooks.concat([object])
+        });
+    }  
+
+    syncing() {
+        console.log("I AM SYNCING")
+        this.ref = rebase.syncState(`${this.props.loggedin}/BOOKS`, {
+            context: this,
+            state: 'saveBooks',
+            asArray: true,
+          });
+    }  
 
     componentDidMount() {
         console.log("update", this.state.query)
@@ -35,16 +59,21 @@ class Books extends Component {
               console.log(result);
               this.setState({
                 isLoaded: true,
-                items: result.docs
+                items: result.docs,
+                loggedin: this.props.logged
               });
               console.log("did mount", this.state.query);
           })
+          this.syncing()
     }  
  
         render(){
+            console.log(this.props.loggedin);
+            console.log(this.state);
             const {  isLoaded, items } = this.state;
             let books = this.state.items;
-            let bookElements = books.map((bookObj, i) => { 
+            let bookElements = books.map((bookObj, i) => {
+                let button = (this.state.loggedin !== '') ? <button className="modal-save-btn" onClick={this.fave.bind(this, i)}>Save</button> : null; 
                 let url = '';
                 if (bookObj.hasOwnProperty('cover_i')) {
                     url = `http://covers.openlibrary.org/b/id/${bookObj.cover_i}-M.jpg?default=false`
@@ -55,12 +84,19 @@ class Books extends Component {
                 } 
                 return (
                 <div key={i}>
-                    <div className="bookInformation">
-                        <img src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
-                        <div className="bookTitle">{bookObj.title}</div>
-                        <div className="bookAuthor">{bookObj.author_name}</div>
+                    <div className="modal-item">
+                        <div className="modal-info-container">
+                            <div ref={"BkTitle" + i} className="modal-title">{bookObj.title}</div>
+                            <div ref={"BkAuthor" + i} className="modal-author">{bookObj.author_name}</div>
+                        </div>
+                        <img ref={"BkImg" + i} className="modal-images books-images" src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        {button}
                     </div>
-                    <button>Save</button>
+                    {/* <div className="bookInformation">
+                        <img  src={url} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                        <div className="bookTitle">{bookObj.title}</div>
+                        <div  className="bookAuthor">{bookObj.author_name}</div>
+                    </div> */}
                 </div>
             )})
             return ( <div>

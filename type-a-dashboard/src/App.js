@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import News from './News';
-import Books from './Books';
-// import Example from './API_Creds';
+// import News from './News';
+// import Books from './Books';
 import APICreds from './API_CredsModal';
 import NewsModal from './NewsModal';
 import BooksModal from './BooksModal';
+import FavsModal from './FavsModal';
 import Logbutton from './components/Logbutton';
 import Weather from './components/weather.js';
 import SearchBar from './components/citysearch.js';
@@ -14,14 +14,7 @@ import {googleKey} from './components/weather-key';
 
 
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      latitude: '25.2048493',
-      longitude: '55.2707828',
-    };
-  }
-
+  
   performSearch = (query) => {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${googleKey}`)
     .then(res => res.json())
@@ -41,22 +34,39 @@ class App extends Component {
         });
       }
     )
+
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loggedin : '',
+      latitude: '25.2048493',
+      longitude: '55.2707828'
+    };
+    this.changeState = this.changeState.bind(this);
+  }
+
+  changeState(input) {
+    this.setState({ loggedin : input })
   }
 
   render() {
+    console.log("STATE APP", this.state);
     return (
       <div className="App">
-        {/* <News /> */}
-        {/*<div id="menu-btns">
-          <NewsModal />
-          <BooksModal />
+          <Logbutton logState={this.changeState}/>
+        <div id="footer-nav">
+        <div id="menu-btns">
+          <NewsModal loggedin={this.state.loggedin}/>
+          <BooksModal loggedin={this.state.loggedin}/>
+          <FavsModal loggedin={this.state.loggedin}/>
           <APICreds />
-          <Books />
-          <Logbutton />
-        </div>*/}
+        </div>
         <SearchBar onSearch={this.performSearch}/>
         <Weather lat={this.state.latitude} lng={this.state.longitude}/>
       </div>
+    </div>
     );
   }
 }

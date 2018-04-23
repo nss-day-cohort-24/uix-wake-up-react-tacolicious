@@ -1,0 +1,20 @@
+.log {
+}
+
+#login-button {
+    position: absolute;
+    right: 0em;
+    top: 3em;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: 2.5em;
+    width: 10em;
+    background-color: white;
+    border: none;
+    color: #7F7F7F;
+}
+
+#login-button:active {
+    background-color: #0000009c;
+    color: white;
+}

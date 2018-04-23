@@ -1,13 +1,12 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import Books from './Books';
+import Favs from './Favs';
 
-
-
-class BooksModal extends React.Component {
+class FavsModal extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
+        modal: false,
         loggedin: ''
       };
   
@@ -22,22 +21,19 @@ class BooksModal extends React.Component {
     }
   
     render() {
-      // if(loggedin !== '') {
-
-      // }
       return (
         <div>
-          <Button color="danger" id="books-button" onClick={this.toggle}>Books</Button>
+          <Button color="danger" id="favorites-button" onClick={this.toggle}>Favorites</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} size="lg">
-            <ModalHeader toggle={this.toggle}>Books</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Favorites</ModalHeader>
   
             <ModalBody>
-                <Books loggedin={this.state.loggedin}/>
+                <Favs loggedin={this.state.loggedin}/>
             </ModalBody>
             
             <ModalFooter>
               {/* <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '} */}
-              <Button color="secondary" className="modal-close-button" onClick={this.toggle}>Close</Button>
+              <Button color="secondary" className="modal-close-button" id="apis-button" onClick={this.toggle}>Close</Button>
             </ModalFooter>
           </Modal>
         </div>
@@ -45,5 +41,5 @@ class BooksModal extends React.Component {
     }
   }
   
-  export default BooksModal;
+  export default FavsModal;
   

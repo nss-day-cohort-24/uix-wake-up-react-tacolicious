@@ -10,5 +10,12 @@ button.btn {
   width: 8em;
   height: 2.2em;
   border-radius: 0;
+  /* border-right: solid white 1px; */
+}
+
+#footer-nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
 
