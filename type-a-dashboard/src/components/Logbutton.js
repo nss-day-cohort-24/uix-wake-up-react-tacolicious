@@ -16,6 +16,7 @@ class Logbutton extends React.Component {
 		this.loginWithGoogle = this.loginWithGoogle.bind(this);
 		this.saveUser = this.saveUser.bind(this);
 		this.submitState = this.submitState.bind(this);
+		this.loginToLogout = this.loginToLogout.bind(this);
 	}
 
 	submitState(){
@@ -36,18 +37,34 @@ class Logbutton extends React.Component {
 		})
 	}
 
+	// consoleTest() {
+	// 	console.log("this is a test");
+	// }
+
 	loginWithGoogle () {
+		this.loginToLogout();
 		return rebase.initializedApp.auth().signInWithPopup(googleProvider)
 		.then((data) => {
-		  this.saveUser(data.user);
+			// console.log("test2");
+			this.saveUser(data.user);
 		});
 	}
-
-	saveUser (user) {
-		return rebase.initializedApp.database().ref().child(`${user.uid}/info`)
+	
+	
+	loginToLogout() {
+		console.log("login button swap called");
+	}
+	
+	
+	// function consoleTest() {
+		
+		// }
+		
+		saveUser (user) {
+			return rebase.initializedApp.database().ref().child(`${user.uid}/info`)
 			.update({
-			email: user.email,
-			uid: user.uid
+				email: user.email,
+				uid: user.uid
 			})
 			.then(() => {
 				this.setState({
@@ -56,12 +73,16 @@ class Logbutton extends React.Component {
 				return this.submitState();
 			})
 		}
+		
+		render() {
+			
+			// this.consoleTest();		
 
-	render() {
+
+
 
 		return(
 			<div>
-
 				<button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>
         		<button onClick={this.logout}>Logout</button>
 			</div>

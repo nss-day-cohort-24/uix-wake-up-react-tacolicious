@@ -32,18 +32,12 @@ class App extends Component {
       <div className="App">
           <Logbutton logState={this.changeState}/>
         <div id="footer-nav">  
-            {/* <div id="menu-btns">
-              <NewsModal />
-              <BooksModal />
-              <FavsModal />
-              <APICreds />
-            </div> */}
-        {/* <News /> */}
+
         <div id="menu-btns">
           <NewsModal loggedin={this.state.loggedin}/>
           <BooksModal loggedin={this.state.loggedin}/>
+          <FavsModal />
           <APICreds />
-          {/* <Books /> */}
         </div>
           <Weather />
       </div>
