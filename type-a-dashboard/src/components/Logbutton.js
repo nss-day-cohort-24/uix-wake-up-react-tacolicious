@@ -77,14 +77,22 @@ class Logbutton extends React.Component {
 		
 		render() {
 			
+			let logInOrOutButton = null;
 
+			if (this.state.loggedin !== '') {
+				logInOrOutButton = <button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>;
+			}
+			else {
+				
+				logInOrOutButton = <button onClick={this.logout} className="btn btn-primary log" id="logout-button">Logout</button>;
+			}
 
 
 
 		return(
 			<div>
-				<button onClick={this.loginWithGoogle} className="btn btn-primary log" id="login-button">Login</button>
-        		<button onClick={this.logout} id="logout-button">Logout</button>
+				{logInOrOutButton}
+				{/* <p>TESTING</p> */}
 			</div>
 		)
 	}
