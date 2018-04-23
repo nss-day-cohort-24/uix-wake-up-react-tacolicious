@@ -1,20 +1,19 @@
 import React from 'react';
-import weatherKey from './weather-key';
+import {weatherKey} from './weather-key';
 import Week_weather from './week_weather';
 import './weather.css';
 
-class Weather extends React.Component {
+class Weather(props) extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
       isLoaded: false,
-      // items: []
     };
   }
 
   componentDidMount() {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/37.8267,-122.4233?exclude=currently,minutely,hourly,alerts,flags`)
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
         (result) => {
