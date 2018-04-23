@@ -3,6 +3,9 @@ import { googleProvider, rebase }  from '../config/constants';
 import './Logbutton.css';
 import App from '../App.js';
 
+
+
+
 class Logbutton extends React.Component {
 
 	constructor(props) {
@@ -37,9 +40,6 @@ class Logbutton extends React.Component {
 		})
 	}
 
-	// consoleTest() {
-	// 	console.log("this is a test");
-	// }
 
 	loginWithGoogle () {
 		this.loginToLogout();
@@ -54,13 +54,12 @@ class Logbutton extends React.Component {
 	loginToLogout() {
 		console.log("login button swap called");
 
+
+
 		
 	}
 	
 	
-	// function consoleTest() {
-		
-		// }
 		
 		saveUser (user) {
 			return rebase.initializedApp.database().ref().child(`${user.uid}/info`)
@@ -78,7 +77,6 @@ class Logbutton extends React.Component {
 		
 		render() {
 			
-			// this.consoleTest();		
 
 
 
