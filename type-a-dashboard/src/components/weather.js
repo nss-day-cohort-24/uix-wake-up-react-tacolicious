@@ -12,6 +12,11 @@ class Weather extends React.Component {
       isLoaded: false,
       days: null      
     };
+    this.getDays = this.getDays.bind(this);
+  }
+
+  componentDidMount(){
+    this.getDays()
   }
 
   getDays = () => {
@@ -22,7 +27,11 @@ class Weather extends React.Component {
       .then(res => res.json())
       .then(
         (results) => {
-          return results.daily.data;
+          // return results.daily.data;
+          this.setState({
+            days: results.daily.data,
+            isLoaded: true
+          })
         },
         (error) => {
           this.setState({
@@ -33,8 +42,9 @@ class Weather extends React.Component {
       )
   }
 
+
   render() {
-    this.getDays()
+    // this.getDays()
     const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
