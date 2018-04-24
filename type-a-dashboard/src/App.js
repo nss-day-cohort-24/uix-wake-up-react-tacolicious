@@ -11,6 +11,7 @@ import Weather from './components/weather.js';
 import SearchBar from './components/citysearch.js';
 import 'bootstrap/dist/css/bootstrap.css';
 import {googleKey} from './components/weather-key';
+import { rebase } from './config/constants';
 
 
 class App extends Component {
@@ -24,7 +25,7 @@ class App extends Component {
       this.setState({
         latitude: location.lat,
         longitude: location.lng
-      })
+      }, this.updateLocal)
       },
         
       (error) => {
@@ -46,10 +47,22 @@ class App extends Component {
       longitude: '55.2707828'
     };
     this.changeState = this.changeState.bind(this);
+    this.updateLocal = this.updateLocal.bind(this);
   }
 
   changeState(input) {
     this.setState({ loggedin : input })
+  }
+
+  updateLocal(){
+    if (this.state.loggedin !== ''){
+        return rebase.initializedApp.database().ref().child(`${this.state.loggedin}/location`)
+        .update({
+          latitude: this.state.latitude,
+          longitude: this.state.longitude
+        }
+      )
+    }
   }
 
   render() {
