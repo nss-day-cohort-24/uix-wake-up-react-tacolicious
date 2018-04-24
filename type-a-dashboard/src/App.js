@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 // import News from './News';
 // import Books from './Books';
+import Time from './Time';
 import APICreds from './API_CredsModal';
 import NewsModal from './NewsModal';
 import BooksModal from './BooksModal';
@@ -69,6 +70,7 @@ class App extends Component {
     console.log("STATE APP", this.state);
     return (
       <div className="App">
+          <Time />
           <SearchBar onSearch={this.performSearch}/>
           <Logbutton logState={this.changeState}/>
         <div id="footer-nav">
