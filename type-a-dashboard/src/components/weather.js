@@ -10,27 +10,32 @@ class Weather extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      days: []
+      days: null
     };
   }
 
 
   checkAgain = () => {
-    // fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
-    //   .then(res => res.json())
-    //   .then(
-    //     (result) => {
-    //       this.setState({
-    //         days: result.daily.data
-    //       });
-    //     },
-    //     (error) => {
-    //       this.setState({
-    //         isLoaded: false,
-    //         error: error
-    //       });
-    //     }
-    //   )
+  //   fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //             if (this.state.days == null) {
+  //               this.setState({
+  //                 isLoaded: true,
+  //                 days: result.daily.data
+  //               });
+  //             }else{
+  //               return result;
+  //             }
+  //       },
+  //       (error) => {
+  //         this.setState({
+  //           isLoaded: false,
+  //           error: error
+  //         });
+  //       }
+  //     )
     console.log("hello");
   }
 
@@ -44,7 +49,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          {/*<Week_weather days={this.state.days} />*/}
+          {/*<Week_weather days={this.state.days}*/}
         </div>
       );
     }
