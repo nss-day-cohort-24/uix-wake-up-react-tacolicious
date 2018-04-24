@@ -14,28 +14,6 @@ import {googleKey} from './components/weather-key';
 
 
 class App extends Component {
-  
-  performSearch = (query) => {
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${googleKey}`)
-    .then(res => res.json())
-    .then(
-      (results) => {
-      let location = results.results[0].geometry.location;
-      this.setState({
-        latitude: location.lat,
-        longitude: location.lng
-      })
-      },
-        
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    )
-  }
-
 
   constructor(props) {
     super(props);
@@ -47,6 +25,27 @@ class App extends Component {
     };
     this.changeState = this.changeState.bind(this);
   }
+  
+  performSearch = (query) => {
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${query}&key=${googleKey}`)
+    .then(res => res.json())
+    .then(
+      (results) => {
+        let location = results.results[0].geometry.location;
+        this.setState({
+          latitude: location.lat,
+          longitude: location.lng
+        })
+      },
+        
+      (error) => {
+        this.setState({
+          isLoaded: true,
+          error: error
+        });
+      }
+    )
+  }
 
   changeState(input) {
     this.setState({ loggedin : input })
@@ -57,12 +56,12 @@ class App extends Component {
     return (
       <div className="App">
           <SearchBar onSearch={this.performSearch}/>
-          <Logbutton logState={this.changeState}/>
+          <Logbutton logState={this.changeState} />
         <div id="footer-nav">
         <div id="menu-btns">
-          <NewsModal loggedin={this.state.loggedin}/>
-          <BooksModal loggedin={this.state.loggedin}/>
-          <FavsModal loggedin={this.state.loggedin}/>
+          <NewsModal loggedin={this.state.loggedin} />
+          <BooksModal loggedin={this.state.loggedin} />
+          <FavsModal loggedin={this.state.loggedin} />
           <APICreds />
         </div>
         <Weather lat={this.state.latitude} lng={this.state.longitude}/>

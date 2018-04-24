@@ -1,46 +1,39 @@
 import React from 'react';
 import {weatherKey} from './weather-key';
-import Week_weather from './week_weather';
+import WeekWeather from './week_weather';
 import './weather.css';
 
 class Weather extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.lat);
+    console.log(props);
     this.state = {
       error: null,
       isLoaded: false,
-      days: null
+      days: null      
     };
   }
 
+  getDays = () => {
+    console.log(this.props.lat);
+    console.log(this.props.lng);
 
-  checkAgain = () => {
-  //   fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //             if (this.state.days == null) {
-  //               this.setState({
-  //                 isLoaded: true,
-  //                 days: result.daily.data
-  //               });
-  //             }else{
-  //               return result;
-  //             }
-  //       },
-  //       (error) => {
-  //         this.setState({
-  //           isLoaded: false,
-  //           error: error
-  //         });
-  //       }
-  //     )
-    console.log("hello");
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
+      .then(res => res.json())
+      .then(
+        (results) => {
+          return results.daily.data;
+        },
+        (error) => {
+          this.setState({
+            isLoaded: false,
+            error: error
+          });
+        }
+      )
   }
 
   render() {
-    this.checkAgain();
     const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -49,7 +42,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          {/*<Week_weather days={this.state.days}*/}
+          <WeekWeather days={this.getDays()} />
         </div>
       );
     }

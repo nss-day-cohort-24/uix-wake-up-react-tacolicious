@@ -1,7 +1,7 @@
 import React from 'react';
 import './weather.css';
 
-const Today_weather = (props) => {
+const TodayWeather = (props) => {
 	return(
 		<div className="col-sm-4 row">
 			<div className="col-sm-6 today_temp">
@@ -14,4 +14,4 @@ const Today_weather = (props) => {
 		);
 }
 
-export default Today_weather;
+export default TodayWeather;
