@@ -34,6 +34,7 @@ class Weather extends React.Component {
   }
 
   render() {
+    this.getDays()
     const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -42,7 +43,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          <WeekWeather days={this.getDays()} />
+          <WeekWeather days={this.state.days} />
         </div>
       );
     }
