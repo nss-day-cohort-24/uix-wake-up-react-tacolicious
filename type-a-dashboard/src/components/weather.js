@@ -14,42 +14,24 @@ class Weather extends React.Component {
     };
   }
 
-  componentDidMount() {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            days: result.daily.data
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
 
   checkAgain = () => {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            days: result.daily.data
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+    // fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
+    //   .then(res => res.json())
+    //   .then(
+    //     (result) => {
+    //       this.setState({
+    //         days: result.daily.data
+    //       });
+    //     },
+    //     (error) => {
+    //       this.setState({
+    //         isLoaded: false,
+    //         error: error
+    //       });
+    //     }
+    //   )
+    console.log("hello");
   }
 
   render() {
@@ -62,7 +44,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          <Week_weather days={this.state.days} />
+          {/*<Week_weather days={this.state.days} />*/}
         </div>
       );
     }
