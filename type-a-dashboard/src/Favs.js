@@ -63,7 +63,7 @@ class Favs extends React.Component {
                       <div ref={"NwSource" + index} className="modal-source">{favArticle.source}</div>
                       <div ref={"NwDesc" + index} className="modal-description">{favArticle.desc}</div>
                   </div>
-                  <img ref={"NwImg" + index} className="modal-images" src={favArticle.img}/>
+                  <img ref={"NwImg" + index} className="modal-images" src={favArticle.img} alt="" />
                 </a>                  
                  {deleteButton}
               </div>
@@ -79,7 +79,7 @@ class Favs extends React.Component {
                         <div className="modal-title">{favBook.title}</div>
                         <div className="modal-author">{favBook.author}</div>
                     </div>
-                    <img className="modal-images books-images" src={favBook.img} onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
+                    <img className="modal-images books-images" src={favBook.img} alt="" onError={(event)=>{event.target.src="http://demo.makitweb.com/broken_image/images/noimage.png"}} />
                     {button}
                 </div>
             </div>

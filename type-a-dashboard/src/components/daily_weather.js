@@ -2,7 +2,7 @@ import React from 'react';
 import './weather.css';
 import Skycons from 'react-skycons';
 
-const Daily_weather = (props) => {
+const DailyWeather = (props) => {
 	var str = props.icon;
 	var under = str.replace(/-/g, "_");
 	var fixed =under.toUpperCase();
@@ -18,4 +18,4 @@ const Daily_weather = (props) => {
 		);
 }
 
-export default Daily_weather;
+export default DailyWeather;
