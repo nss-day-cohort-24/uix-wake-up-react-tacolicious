@@ -1,59 +1,40 @@
 import React from 'react';
 import {weatherKey} from './weather-key';
-import Week_weather from './week_weather';
+import WeekWeather from './week_weather';
 import './weather.css';
 
 class Weather extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props.lat);
+    console.log(props);
     this.state = {
       error: null,
       isLoaded: false,
-      days: []
+      days: null      
     };
   }
 
-  componentDidMount() {
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            days: result.daily.data
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
-  }
+  getDays = () => {
+    console.log(this.props.lat);
+    console.log(this.props.lng);
 
-  checkAgain = () => {
     fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            days: result.daily.data
-          });
+        (results) => {
+          return results.daily.data;
         },
         (error) => {
           this.setState({
-            isLoaded: true,
-            error
+            isLoaded: false,
+            error: error
           });
         }
       )
   }
 
   render() {
-    // this.checkAgain();
+    this.getDays()
     const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
@@ -62,7 +43,7 @@ class Weather extends React.Component {
     } else {
       return (
         <div className="col-sm-12 row weather">
-          <Week_weather days={this.state.days} />
+          <WeekWeather days={this.state.days} />
         </div>
       );
     }
