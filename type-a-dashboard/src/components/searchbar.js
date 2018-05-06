@@ -1,5 +1,5 @@
 import React from 'react';
-import './city_search.css';
+import './searchbar.css';
 
 export default class SearchBar extends React.Component {
 	state = {
@@ -21,6 +21,6 @@ export default class SearchBar extends React.Component {
 			<form onSubmit={this.handleSubmit}>
 				<input type='text' placeholder='Search by City' onChange={this.onSearchChange} ></input>
 			</form>
-			);
+		);
 	}
 }

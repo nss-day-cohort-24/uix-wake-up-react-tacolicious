@@ -22,8 +22,12 @@ class Weather extends React.Component {
       .then(res => res.json())
       .then(
         (results) => {
-          return results.daily.data;
+          console.log(results.daily.data);
+          this.setState({
+            days: results.daily.data
+          });
         },
+
         (error) => {
           this.setState({
             isLoaded: false,
@@ -34,7 +38,6 @@ class Weather extends React.Component {
   }
 
   render() {
-    this.getDays()
     const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;

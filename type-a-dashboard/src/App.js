@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
+
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 // import News from './News';
 // import Books from './Books';
 import Time from './Time';
@@ -9,13 +11,12 @@ import BooksModal from './BooksModal';
 import FavsModal from './FavsModal';
 import Logbutton from './components/Logbutton';
 import Weather from './components/weather.js';
-import SearchBar from './components/citysearch.js';
-import 'bootstrap/dist/css/bootstrap.css';
+import SearchBar from './components/searchbar.js';
 import {googleKey} from './components/weather-key';
 import { rebase } from './config/constants';
 
 
-class App extends Component {
+class App extends React.Component {
 
   constructor(props) {
     super(props);
@@ -34,12 +35,12 @@ class App extends Component {
     .then(res => res.json())
     .then(
       (results) => {
-      let location = results.results[0].geometry.location;
-      this.setState({
-        latitude: location.lat,
-        longitude: location.lng
-      }, this.updateLocal)
-        
+        let location = results.results[0].geometry.location;
+        this.setState({
+          latitude: location.lat,
+          longitude: location.lng
+        });
+        this.updateLocal();        
       },
         
       (error) => {
@@ -67,22 +68,21 @@ class App extends Component {
   }
 
   render() {
-    console.log("STATE APP", this.state);
     return (
-      <div className="App">
-          <Time />
-          <SearchBar onSearch={this.performSearch}/>
-          <Logbutton logState={this.changeState} />
+      <div>
+        <Time />
+        <SearchBar onSearch={this.performSearch}/>
+        <Logbutton logState={this.changeState} />
         <div id="footer-nav">
-        <div id="menu-btns">
-          <NewsModal loggedin={this.state.loggedin} />
-          <BooksModal loggedin={this.state.loggedin} />
-          <FavsModal loggedin={this.state.loggedin} />
-          <APICreds />
+          <div id="menu-btns">
+            <NewsModal loggedin={this.state.loggedin} />
+            <BooksModal loggedin={this.state.loggedin} />
+            <FavsModal loggedin={this.state.loggedin} />
+            <APICreds />
+          </div>
+          <Weather lat={this.state.latitude} lng={this.state.longitude}/>
         </div>
-        <Weather lat={this.state.latitude} lng={this.state.longitude}/>
       </div>
-    </div>
     );
   }
 }
