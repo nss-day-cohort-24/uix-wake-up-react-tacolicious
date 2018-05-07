@@ -1,6 +1,6 @@
 import React from 'react';
-import {weatherKey} from './weather-key';
-import WeekWeather from './week_weather';
+import {weatherKey} from './api_keys';
+import WeekWeather from './weather_week';
 import './weather.css';
 
 class Weather extends React.Component {

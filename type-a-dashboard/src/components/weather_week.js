@@ -1,6 +1,6 @@
 import React from 'react';
-import TodayWeather from './today_weather';
-import DailyWeather from './daily_weather';
+import TodayWeather from './weather_today';
+import DailyWeather from './weather_daily';
 import './weather.css';
 
 const WeekWeather = (props) => {

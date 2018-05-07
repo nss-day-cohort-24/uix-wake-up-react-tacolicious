@@ -12,7 +12,7 @@ import FavsModal from './FavsModal';
 import Logbutton from './components/Logbutton';
 import Weather from './components/weather.js';
 import SearchBar from './components/searchbar.js';
-import {googleKey} from './components/weather-key';
+import {googleKey} from './components/api_keys';
 import { rebase } from './config/constants';
 
 
