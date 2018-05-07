@@ -1,4 +1,5 @@
 import React from 'react';
+import {googleKey} from './api_keys';
 import './searchbar.css';
 
 export default class SearchBar extends React.Component {

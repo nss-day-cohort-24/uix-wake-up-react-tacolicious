@@ -23,8 +23,10 @@ class App extends React.Component {
 
     this.state = {
       loggedin : '',
-      latitude: '25.2048493',
-      longitude: '55.2707828'
+      location: {
+        latitude: '25.2048493',
+        longitude: '55.2707828'
+      }
     };
     this.changeState = this.changeState.bind(this);
     this.updateLocal = this.updateLocal.bind(this);
@@ -36,18 +38,24 @@ class App extends React.Component {
     .then(
       (results) => {
         let location = results.results[0].geometry.location;
-        this.setState({
-          latitude: location.lat,
-          longitude: location.lng
-        });
+        this.setState(
+          {
+            location: {
+              latitude: location.lat,
+              longitude: location.lng
+            }
+          }
+        );
         this.updateLocal();        
       },
         
       (error) => {
-        this.setState({
-          isLoaded: true,
-          error: error
-        });
+        this.setState(
+          {
+            isLoaded: true,
+            error: error
+          }
+        );
       }
     )
   }
@@ -80,7 +88,7 @@ class App extends React.Component {
             <FavsModal loggedin={this.state.loggedin} />
             <APICreds />
           </div>
-          <Weather lat={this.state.latitude} lng={this.state.longitude}/>
+          <Weather location={this.state.location}/>
         </div>
       </div>
     );

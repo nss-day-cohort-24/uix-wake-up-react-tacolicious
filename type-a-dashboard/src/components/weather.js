@@ -6,26 +6,27 @@ import './weather.css';
 class Weather extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    console.log("What props?", props);
     this.state = {
       error: null,
-      isLoaded: false,
-      days: null      
+      isLoaded: true,
+      days: []     
     };
   }
 
-  getDays = () => {
-    console.log(this.props.lat);
-    console.log(this.props.lng);
-
-    fetch(`https://api.darksky.net/forecast/${weatherKey}/${this.props.lat},${this.props.lng}?exclude=currently,minutely,hourly,alerts,flags`)
+  getDays(props) {
+    console.log("Dis is props", props)
+    fetch(`https://api.darksky.net/forecast/${weatherKey}/${props.latitude},${props.longitude}?exclude=currently,minutely,hourly,alerts,flags`)
       .then(res => res.json())
       .then(
         (results) => {
-          console.log(results.daily.data);
-          this.setState({
-            days: results.daily.data
-          });
+          console.log("Faith No More", results.daily.data);
+          this.setState(
+            {
+              isLoaded: true,
+              days: results.daily.data
+            }
+          );
         },
 
         (error) => {
@@ -38,12 +39,14 @@ class Weather extends React.Component {
   }
 
   render() {
-    const { error, isLoaded} = this.state;
+    const { error, isLoaded, days } = this.state;
+
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div>Loading...</div>;
-    } else {
+    } else if (!days) {
+      this.getDays(this.props.location);
       return (
         <div className="col-sm-12 row weather">
           <WeekWeather days={this.state.days} />
@@ -54,3 +57,5 @@ class Weather extends React.Component {
 };
 
 export default Weather;
+
+
