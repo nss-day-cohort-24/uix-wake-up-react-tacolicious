@@ -69,7 +69,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id="features" className="col-12">
         <Time />
         <SearchBar onSearch={this.performSearch}/>
         <Logbutton logState={this.changeState} />

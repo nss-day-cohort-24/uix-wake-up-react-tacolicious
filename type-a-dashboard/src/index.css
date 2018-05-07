@@ -3,3 +3,10 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+#root {
+	background-image: url("http://3.bp.blogspot.com/-pnaAkl3TTLI/UiM3_IUj46I/AAAAAAAAPSE/DSTVMVNxqpM/s1600/dubai+tower.jpg");
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
